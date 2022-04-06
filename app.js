@@ -7,7 +7,7 @@ let db_url = "mongodb://admin:admin@cluster0-shard-00-00.ngnbw.mongodb.net:27017
 
 
 
-mongoose.connect(db_url).then((obj)=>{ console.log("Connecetd to database")}).catch((err)=>{
+mongoose.connect(db_url).then((obj) => { console.log("Connecetd to database") }).catch((err) => {
     console.log(err)
 })
 
@@ -20,16 +20,19 @@ app.set("view engine", "ejs");
 
 
 
-app.get("/", (req,res)=>{
+app.get("/", (req, res) => {
     res.render("index.ejs");
 })
 
 
+app.get("/admin", function(req, res){
+    res.render("admin.ejs");
+})
 
 
-app.listen(3000, (err)=>{
-    if(err)
-    console.log(err)
+app.listen(3000, (err) => {
+    if (err)
+        console.log(err)
     else
-    console.log("Server is running")
+        console.log("Server is running")
 })
